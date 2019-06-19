@@ -22,8 +22,8 @@ begin
 	end
 	else if(write_enable && write_add !=0)
 	begin
-		register_file[write_add] <= write_data;
+		register[write_add] <= write_data;
 	end
 end
-assign data_1 = (write_add==0)? 0:register_file[add_rs1];
-assign data_2 = (write_add==0)? 0:register_file[add_rs2];
+assign data_1 = (write_add==0)? 0:register[add_rs1];
+assign data_2 = (write_add==0)? 0:register[add_rs2];
