@@ -1,4 +1,4 @@
-module alu#(parameter WORD_LENGTH =32;)
+module alu#(parameter WORD_LENGTH =32)
           ( input [31:0] in_1,
 	    input [31:0] in_2,
 	    input cin,
