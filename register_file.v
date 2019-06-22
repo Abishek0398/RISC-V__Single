@@ -1,4 +1,4 @@
-module register_file#(parameter WORD_LENGTH = 32;)
+module register_file#(parameter WORD_LENGTH = 32)
 	             (input [4:0] add_rs1,
 	              input [4:0] add_rs2,
 		      input [4:0] write_add,
@@ -7,7 +7,7 @@ module register_file#(parameter WORD_LENGTH = 32;)
 		      input clk,
 		      input rst,
 		      output [WORD_LENGTH-1:0] data_1,
-		      output [WORD_LENGTH-1:0] data_2,
+		      output [WORD_LENGTH-1:0] data_2
 	             );
 integer i;		     
 reg [31:0] register[31:0];
@@ -27,3 +27,4 @@ begin
 end
 assign data_1 = (write_add==0)? 0:register[add_rs1];
 assign data_2 = (write_add==0)? 0:register[add_rs2];
+endmodule
