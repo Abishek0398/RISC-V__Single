@@ -3,6 +3,8 @@ module risc_v_control #(parameter WORD_LENGTH =32)
 	                input [2:0] funct3,
 		        inout funct7,
 			output reg [4:0] alu_op,
+			output reg is_I_type,
+			output reg reg_write_en
 		        );
 always @(opcode,funct3,funct7)
 	case(opcode)
@@ -28,7 +30,7 @@ always @(opcode,funct3,funct7)
 				  reg_write_en=1;
 				  casex({funct7,funct3})
 					  4'b 0000 : alu_op = 0;
-					  4'b 1000 : alu_op = 16
+					  4'b 1000 : alu_op = 16;
 	                                  4'b X001 : alu_op = 1;
                                           4'b X010 : alu_op = 2;
 	                                  4'b X011 : alu_op = 3;
@@ -40,8 +42,10 @@ always @(opcode,funct3,funct7)
 	                                  default : alu_op=0;
 				  endcase
 			     end
-	        default: is_I_type = 0;
-		         reg_write_en = 0;
+	          default: begin
+			        is_I_type = 0;
+		                reg_write_en = 0;
+			   end
 	endcase
 endmodule	
 
