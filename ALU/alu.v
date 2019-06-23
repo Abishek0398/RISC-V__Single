@@ -38,8 +38,8 @@ module alu#(parameter WORD_LENGTH =32)
 	  endgenerate
 	  generate for(j=0;j<32;j=j+1)
 		  begin
-			  and alu_and(result[8][j],in_1[j],in_2_int[j]); // and logic
-			  or alu_or(result[7][j],in_1[j],in_2_int[j]); // or logic
+			  and alu_and(result[7][j],in_1[j],in_2_int[j]); // and logic
+			  or alu_or(result[8][j],in_1[j],in_2_int[j]); // or logic
 			  xor alu_xor(result[4][j],in_1[j],in_2_int[j]); // xor logic
 		  end
 	  endgenerate
