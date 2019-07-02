@@ -11,7 +11,7 @@ module register_file#(parameter WORD_LENGTH = 32)
 	             );
 integer i;		     
 reg [31:0] register[31:0];
-always @(posedge(clk) or negedge(rst))
+always @(posedge(clk))
 begin
 	if(!rst)
 	begin
