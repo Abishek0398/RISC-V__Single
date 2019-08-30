@@ -37,5 +37,5 @@ begin
 		word_line[address+3] <= write_data[31:24];
 	end
 end
-assign data_out = (read_enable) ? {word_line[address], word_line[address+1], word_line[address+2], word_line[address+3] }:0;
+assign data_out = (read_enable) ? {word_line[address+3], word_line[address+2], word_line[address+1], word_line[address] }:0;
 endmodule

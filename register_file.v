@@ -25,6 +25,6 @@ begin
 		register[write_add] <= write_data;
 	end
 end
-assign data_1 = (write_add==0)? 0:register[add_rs1];
-assign data_2 = (write_add==0)? 0:register[add_rs2];
+assign data_1 = (add_rs1==0)? 0:register[add_rs1];
+assign data_2 = (add_rs2==0)? 0:register[add_rs2];
 endmodule

@@ -16,6 +16,19 @@ module risc_v_control #(parameter WORD_LENGTH =32)
 			output reg [2:0] mem_write_en
 		        );
 always @(opcode,funct3,funct7)
+begin
+	is_I_type = 0;
+	is_L_type = 0;
+	is_S_type = 0;
+	reg_write_en = 0;
+        alu_op = 0;
+	mem_read_en=0;
+	mem_write_en =0;
+	cin =0;
+	is_J_type =0;
+	is_JR_type =0;
+	is_B_type =0;
+	b_cond=0;
 	case(opcode)
 		7'b 0010011: begin
 			          is_I_type=1;
@@ -136,5 +149,6 @@ always @(opcode,funct3,funct7)
 				b_cond=0;
 			   end
 	endcase
+end
 endmodule	
 

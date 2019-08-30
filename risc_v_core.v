@@ -64,7 +64,7 @@ module risc_v #(parameter WORD_LENGTH =32)
 
 	       memory_helper mem_help(.ip_value(mem_out_data),.func(instr[14:12]),.op_value(mem_data_processed)); // memory output helper
 
-	       assign alu_ip2 = (is_I_type || is_S_type || is_L_type || is_B_type) ? sign_extended_out : reg_op2; //alu input selection
+	       assign alu_ip2 = (is_I_type || is_S_type || is_L_type) ? sign_extended_out : reg_op2; //alu input selection
 
 	       always @(posedge(clk))
 	       begin
@@ -78,7 +78,7 @@ module risc_v #(parameter WORD_LENGTH =32)
 		       end
 		       else if(B_enable && is_B_type)
 		       begin
-			       pc <= pc+ ($signed({instr[31],instr[7],instr[30:25],instr[11:8]}) << 1);
+			       pc <= pc+ $signed({instr[31],instr[7],instr[30:25],instr[11:8]}) << 1;
 		       end
 		       else
 		       begin
