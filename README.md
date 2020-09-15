@@ -7,3 +7,14 @@ Control signals are generated using hardwired control unit using a part of 32-bi
 
 ## Instruction implemented from RV32I:
 ![Screenshot](zinstr.png)
+
+## Try in your machine:
+The core is not extensively tested so proper execution of all combinations of multiple instructions is not gauranteed.
+The default output register is register[1].
+
+Pre-requisite: iverilog
+
+1. Put in the 32 bit instruction in reverse order inside the instruction_mem.mem file (Template given inside)
+2. Initialize the register file using register_init.mem (Template given inside)
+3. run iverilog risc_testbench.v
+4. Execute the binary provided by iverilog 
